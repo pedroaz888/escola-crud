@@ -5,8 +5,6 @@ class AlunoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Aluno
         fields = ['id', 'nome', 'rg', 'cpf', 'data_nascimento', 'foto']
-        # list_per_page = 20
-
 
 class AlunoSerializerV2(serializers.ModelSerializer):
     class Meta:

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'escola',
     'corsheaders',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -144,10 +145,16 @@ REST_FRAMEWORK = {
 #-----------PAGINATION------------------------------------------------######
 
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 30
+    'PAGE_SIZE': 30,
+
+#-----------FILTER--------------------------------------------------########
+
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 
 
-    #-----------LIMITA O USUÁRIO ANÔNIMMO DE GETS--------------------------
+
+
+    #-----------LIMITA O USUÁRIO ANÔNIMMO DE GETS-------------------#######
 
     # 'DEFAULT_THROTTLE_CLASSES': [
     #     'rest_framework.throttling.AnonRateThrottle',
