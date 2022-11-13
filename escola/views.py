@@ -4,6 +4,7 @@ from escola.models import Aluno, Curso, Matricula
 from escola.serializer import AlunoSerializer, AlunoSerializerV2,CursoSerializer, MatriculaSerializer, ListaMatriculasAlunoSerializer, ListaAlunosMatriculadosSerializer
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 
 class AlunosViewSet(viewsets.ModelViewSet):
@@ -13,6 +14,8 @@ class AlunosViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['nome']
     search_fields = ['nome']
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.request.version == 'v2':
