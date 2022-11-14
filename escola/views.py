@@ -29,6 +29,8 @@ class CursosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os cursos"""
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
     def create(self, request):
@@ -45,6 +47,8 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
     http_method_names = ['get', 'post', 'put', 'path']
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
 
 
 class ListaMatriculasAluno(generics.ListAPIView):
@@ -60,3 +64,5 @@ class ListaAlunosMatriculados(generics.ListAPIView):
         queryset = Matricula.objects.filter(curso_id=self.kwargs['pk'])
         return queryset
     serializer_class = ListaAlunosMatriculadosSerializer
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
