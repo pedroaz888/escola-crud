@@ -5,6 +5,7 @@ from escola.serializer import AlunoSerializer, AlunoSerializerV2,CursoSerializer
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from escola.auth import auth
 
 
 class AlunosViewSet(viewsets.ModelViewSet):
@@ -14,8 +15,9 @@ class AlunosViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['nome']
     search_fields = ['nome']
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    auth()
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.request.version == 'v2':
@@ -29,8 +31,9 @@ class CursosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os cursos"""
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    auth()
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
 
 
     def create(self, request):
@@ -47,8 +50,9 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     queryset = Matricula.objects.all()
     serializer_class = MatriculaSerializer
     http_method_names = ['get', 'post', 'put', 'path']
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    auth()
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
 
 
 class ListaMatriculasAluno(generics.ListAPIView):
@@ -64,5 +68,6 @@ class ListaAlunosMatriculados(generics.ListAPIView):
         queryset = Matricula.objects.filter(curso_id=self.kwargs['pk'])
         return queryset
     serializer_class = ListaAlunosMatriculadosSerializer
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    auth()
+    # authentication_classes = [BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
