@@ -3,13 +3,13 @@
 CRUD em python utilizando Django Rest Framework
 
   
- path('alunos/<int:pk>/             -----> GET Aluno
- path('alunos/<int:pk>/matriculas/  -----> Lista Matriculas de Alunos
- path('cursos/<int:pk>/matriculas/  -----> List aAlunos Matriculados
+ path('alunos/<int:pk>/             -----> GET Aluno <br />
+ path('alunos/<int:pk>/matriculas/  -----> Lista Matriculas de Alunos <br />
+ path('cursos/<int:pk>/matriculas/  -----> List aAlunos Matriculados <br />
   
 
 https://escola-crud.herokuapp.com/
 
-acesso:
-  usuário:joe |
-  senha: marianno123
+acesso:<br />
+  usuário:joe <br />
+  senha: marianno123<br />
