@@ -11,5 +11,5 @@ CRUD em python utilizando Django Rest Framework
 https://escola-crud.herokuapp.com/
 
 acesso:<br />
-  usuário:joe <br />
-  senha: marianno123<br />
+  usuário: **joe** <br />
+  senha: **marianno123**<br />
